@@ -1,5 +1,6 @@
 package com.peter.quickstart;
 
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class QuickstartApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(QuickstartApplication.class, args);
+		SpringApplication app = new SpringApplication(QuickstartApplication.class);
+		app.setBannerMode(Banner.Mode.OFF);
+		app.run(args);
 	}
-
 }
