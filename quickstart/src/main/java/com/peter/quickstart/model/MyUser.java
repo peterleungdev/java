@@ -4,26 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Component
+@Configuration
+@ConfigurationProperties(prefix = "myuser")
+@Data
 public class MyUser {
     private String surname;
     private String forename;
     private String country;
 
     public String getUserInfo() {
-        if (this.surname == null) {
-            this.surname = "root";
-        }
-        if (this.forename == null) {
-            this.forename = "root";
-        }
-        if (this.country == null) {
-            this.country = "super earth";
-        }
         return String.format(
                 "%s %s from %s",
                 this.forename,
